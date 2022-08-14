@@ -6,10 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/file")
@@ -28,10 +26,10 @@ public class FileController {
     }
 
 
-//    @GetMapping("/view/{generatedName}")
-//    private ResponseEntity<InputStreamResource> viewFile(@PathVariable String generatedName) throws FileNotFoundException {
-//        return service.viewFile(generatedName);
-//    }
+    @GetMapping("/view/{generatedName}")
+    private ResponseEntity<InputStreamResource> viewFile(@PathVariable String generatedName) throws FileNotFoundException {
+        return service.viewFile(generatedName);
+    }
 
 
 //    @GetMapping("/download/{generatedName}")
