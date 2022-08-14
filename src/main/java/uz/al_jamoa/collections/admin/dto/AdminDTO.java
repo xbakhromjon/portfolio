@@ -1,5 +1,4 @@
-package uz.al_jamoa.collections.user.dto;
-
+package uz.al_jamoa.collections.admin.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,11 +9,12 @@ import uz.al_jamoa.collections.file.File;
 import javax.persistence.OneToOne;
 import java.util.UUID;
 
-@Getter
 @Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserCreateDTO {
+public class AdminDTO {
+    private UUID ID;
     private String firstName;
     private String lastName;
     private String occupation;
@@ -24,7 +24,5 @@ public class UserCreateDTO {
     private String linkedinLink;
     private String telegramLink;
     private String channelNameLink;
-
-    private UUID fileID;
-
+    private String aboutMe;
 }

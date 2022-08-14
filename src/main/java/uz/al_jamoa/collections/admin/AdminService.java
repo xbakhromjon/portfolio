@@ -1,11 +1,11 @@
-package uz.al_jamoa.collections.user;
+package uz.al_jamoa.collections.admin;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import uz.al_jamoa.collections.file.File;
 import uz.al_jamoa.collections.file.FileRepository;
-import uz.al_jamoa.collections.user.dto.UserCreateDTO;
-import uz.al_jamoa.collections.user.dto.UserUpdateDTO;
+import uz.al_jamoa.collections.admin.dto.AdminCreateDTO;
+import uz.al_jamoa.collections.admin.dto.AdminUpdateDTO;
 import uz.al_jamoa.exception.BadRequestException;
 
 import java.util.Optional;
@@ -22,7 +22,7 @@ public class AdminService {
         this.fileRepository = fileRepository;
     }
 
-    public ResponseEntity<?> create(UserCreateDTO createDTO){
+    public ResponseEntity<?> create(AdminCreateDTO createDTO){
 
         Admin user=new Admin(createDTO.getFirstName(), createDTO.getLastName(), createDTO.getOccupation(), createDTO.getShortDescription(),
                 createDTO.getYoutubeLink(), createDTO.getGithubLink(), createDTO.getLinkedinLink(), createDTO.getTelegramLink(), createDTO.getChannelNameLink());
@@ -39,7 +39,7 @@ public class AdminService {
         return ResponseEntity.ok("Muvaqiyatli yaratildi");
     }
 
-    public ResponseEntity<?> update(UserUpdateDTO updateDTO){
+    public ResponseEntity<?> update(AdminUpdateDTO updateDTO){
         Optional<Admin> byId = repository.findById(updateDTO.getId());
         if (byId.isEmpty()){
             throw new BadRequestException("UserTopilmadi");

@@ -10,9 +10,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import uz.al_jamoa.utils.AuthService;
-import uz.al_jamoa.utils.JwtFilter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import uz.al_jamoa.collections.auth.AuthService;
+import uz.al_jamoa.collections.auth.JwtFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -58,6 +59,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/webjars/"
                 )
                 .permitAll()
-                .antMatchers("citizen-appeal/api/v1/**").permitAll();
+                .antMatchers("api/v1/admin/**", "api/v1/file/upload", "api/v1/file/upload/image").authenticated()
+                .antMatchers("api/v1/**").permitAll();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder(4);
     }
 }

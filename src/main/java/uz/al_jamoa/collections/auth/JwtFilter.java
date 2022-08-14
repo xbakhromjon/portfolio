@@ -1,4 +1,4 @@
-package uz.al_jamoa.utils;
+package uz.al_jamoa.collections.auth;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

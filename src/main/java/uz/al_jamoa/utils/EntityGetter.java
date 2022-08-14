@@ -3,6 +3,8 @@ package uz.al_jamoa.utils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+import uz.al_jamoa.collections.admin.Admin;
+import uz.al_jamoa.collections.admin.AdminRepository;
 import uz.al_jamoa.collections.blog.Blog;
 import uz.al_jamoa.collections.blog.BlogRepository;
 import uz.al_jamoa.collections.file.File;
@@ -17,6 +19,7 @@ import java.util.UUID;
 public class EntityGetter {
     private final FileRepository fileRepository;
     private final BlogRepository blogRepository;
+    private final AdminRepository adminRepository;
 
     public File getFile(String generateName) {
         Optional<File> optional = fileRepository.findByGeneratedName(generateName);
@@ -29,6 +32,13 @@ public class EntityGetter {
         Optional<Blog> optional = blogRepository.findById(id);
         return optional.orElseThrow(() -> {
             throw new UniversalException("Blog topilmadi", HttpStatus.NOT_FOUND);
+        });
+    }
+
+    public Admin getAdmin(String username) {
+        Optional<Admin> optional = adminRepository.findByUsername(username);
+        return optional.orElseThrow(() -> {
+            throw new UniversalException("Admin topilmadi", HttpStatus.NOT_FOUND);
         });
     }
 }

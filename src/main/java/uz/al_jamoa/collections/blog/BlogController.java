@@ -18,7 +18,7 @@ public class BlogController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> get(String id) {
+    public ResponseEntity<?> get(@PathVariable String id) {
         return service.get(id);
     }
 
