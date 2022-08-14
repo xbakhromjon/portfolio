@@ -107,7 +107,7 @@ public class FileService {
         HttpHeaders headers = new HttpHeaders();
         headers.add("content-disposition", "inline;filename=" + fileEntity.getOriginalName());
         InputStreamResource resource = new InputStreamResource(new FileInputStream(send));
-        return ResponseEntity.ok().headers(headers).contentLength(send.length()).contentType(MediaType.parseMediaType(fileEntity.())).body(resource);
+        return ResponseEntity.ok().headers(headers).contentLength(send.length()).contentType(MediaType.parseMediaType(fileEntity.getExtention())).body(resource);
     }
 
     private uz.al_jamoa.collections.file.File findFile(String generatedName) {
