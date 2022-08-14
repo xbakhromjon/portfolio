@@ -6,10 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import uz.al_jamoa.base.entity.BaseEntityID;
 
+import javax.persistence.Entity;
+
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class Link extends BaseEntityID {
     private String link;
     private int linkTypeCode;
