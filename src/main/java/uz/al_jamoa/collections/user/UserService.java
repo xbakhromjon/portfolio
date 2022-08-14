@@ -1,5 +1,6 @@
 package uz.al_jamoa.collections.user;
 
+import org.apache.catalina.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import uz.al_jamoa.collections.file.File;
@@ -9,6 +10,7 @@ import uz.al_jamoa.collections.user.dto.UserUpdateDTO;
 import uz.al_jamoa.exception.BadRequestException;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class UserService {
@@ -62,6 +64,15 @@ public class UserService {
         repository.save(user);
 
         return ResponseEntity.ok(user);
+    }
+
+    public ResponseEntity<?> get(UUID uuid){
+
+        Optional<Users> optional = repository.findById(uuid);
+        if (optional.isEmpty()){
+            throw new BadRequestException("User topilmadi");
+        }
+        return ResponseEntity.ok(optional.get());
     }
 
 
