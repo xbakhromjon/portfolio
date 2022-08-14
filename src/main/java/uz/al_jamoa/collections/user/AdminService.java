@@ -1,6 +1,5 @@
 package uz.al_jamoa.collections.user;
 
-import org.apache.catalina.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import uz.al_jamoa.collections.file.File;
@@ -13,19 +12,19 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class UserService {
+public class AdminService {
 
-    private final UserRepository repository;
+    private final AdminRepository repository;
 
     private final FileRepository fileRepository;
-    public UserService(UserRepository repository, FileRepository fileRepository) {
+    public AdminService(AdminRepository repository, FileRepository fileRepository) {
         this.repository = repository;
         this.fileRepository = fileRepository;
     }
 
     public ResponseEntity<?> create(UserCreateDTO createDTO){
 
-        Users user=new Users(createDTO.getFirstName(), createDTO.getLastName(), createDTO.getOccupation(), createDTO.getShortDescription(),
+        Admin user=new Admin(createDTO.getFirstName(), createDTO.getLastName(), createDTO.getOccupation(), createDTO.getShortDescription(),
                 createDTO.getYoutubeLink(), createDTO.getGithubLink(), createDTO.getLinkedinLink(), createDTO.getTelegramLink(), createDTO.getChannelNameLink());
 
 
@@ -41,11 +40,11 @@ public class UserService {
     }
 
     public ResponseEntity<?> update(UserUpdateDTO updateDTO){
-        Optional<Users> byId = repository.findById(updateDTO.getId());
+        Optional<Admin> byId = repository.findById(updateDTO.getId());
         if (byId.isEmpty()){
             throw new BadRequestException("UserTopilmadi");
         }
-        Users user=byId.get();
+        Admin user=byId.get();
         user.setFirstName(updateDTO.getFirstName());
         user.setLastName(updateDTO.getLastName());
         user.setOccupation(updateDTO.getOccupation());
@@ -68,7 +67,7 @@ public class UserService {
 
     public ResponseEntity<?> get(UUID uuid){
 
-        Optional<Users> optional = repository.findById(uuid);
+        Optional<Admin> optional = repository.findById(uuid);
         if (optional.isEmpty()){
             throw new BadRequestException("User topilmadi");
         }

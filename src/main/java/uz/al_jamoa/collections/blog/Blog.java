@@ -22,4 +22,13 @@ public class Blog extends BaseEntityID {
     private String title;
     private LocalDate createdAt;
     private LocalDate updatedAt;
+    private Boolean isDeleted;
+    private LocalDate deletedAt;
+
+
+    public Blog(File file, String title, LocalDate createdAt) {
+        this.file = file;
+        this.title = title;
+        this.createdAt = createdAt;
+    }
 }

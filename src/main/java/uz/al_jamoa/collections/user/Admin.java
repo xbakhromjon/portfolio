@@ -15,7 +15,7 @@ import javax.persistence.OneToOne;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Users extends BaseEntityID {
+public class Admin extends BaseEntityID {
     private String firstName;
     private String lastName;
     private String occupation;
@@ -28,7 +28,7 @@ public class Users extends BaseEntityID {
     @OneToOne
     private File aboutMe;
 
-    public Users(String firstName, String lastName, String occupation, String shortDescription, String youtubeLink, String githubLink, String linkedinLink, String telegramLink, String channelNameLink) {
+    public Admin(String firstName, String lastName, String occupation, String shortDescription, String youtubeLink, String githubLink, String linkedinLink, String telegramLink, String channelNameLink) {
 
         this.firstName = firstName;
         this.lastName = lastName;

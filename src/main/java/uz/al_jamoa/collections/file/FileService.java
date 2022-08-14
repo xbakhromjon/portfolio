@@ -54,7 +54,7 @@ public class FileService {
             fileOutputStream.write(file.getBytes());
             fileOutputStream.close();
             fileOutputStream.flush();
-            uz.al_jamoa.collections.file.File fileEntity = new uz.al_jamoa.collections.file.File(url, originalFilename, extention, generatedName, size);
+            uz.al_jamoa.collections.file.File fileEntity = new uz.al_jamoa.collections.file.File(url, originalFilename, contentType, generatedName, size);
             uz.al_jamoa.collections.file.File saved = repository.save(fileEntity);
             return ResponseEntity.ok(saved.getGeneratedName());
         } else {
@@ -92,8 +92,8 @@ public class FileService {
             fileOutputStream.write(file.getBytes());
             fileOutputStream.close();
             fileOutputStream.flush();
-            uz.al_jamoa.collections.file.File fileEntity = new uz.al_jamoa.collections.file.File(url, originalFilename, extention, generatedName, size);
-            uz.al_jamoa.collections.file.File saved = repository.save(fileEntity);
+            uz.al_jamoa.collections.file.File fileEntity = new uz.al_jamoa.collections.file.File(url, originalFilename, contentType, generatedName, size);
+            repository.save(fileEntity);
             String response = BASE_URL + "/file/view/" + generatedName;
             return ResponseEntity.ok(response);
         } else {
@@ -107,7 +107,7 @@ public class FileService {
         HttpHeaders headers = new HttpHeaders();
         headers.add("content-disposition", "inline;filename=" + fileEntity.getOriginalName());
         InputStreamResource resource = new InputStreamResource(new FileInputStream(send));
-        return ResponseEntity.ok().headers(headers).contentLength(send.length()).contentType(MediaType.parseMediaType(fileEntity.getExtention())).body(resource);
+        return ResponseEntity.ok().headers(headers).contentLength(send.length()).contentType(MediaType.parseMediaType(fileEntity.getContentType())).body(resource);
     }
 
     private uz.al_jamoa.collections.file.File findFile(String generatedName) {

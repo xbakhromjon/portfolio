@@ -7,5 +7,5 @@ import java.util.UUID;
 
 
 @Repository
-public interface UserRepository extends JpaRepository<Users, UUID> {
+public interface AdminRepository extends JpaRepository<Admin, UUID> {
 }

@@ -9,11 +9,11 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("user/")
-public class UserController {
+public class AdminController {
 
-    private final UserService service;
+    private final AdminService service;
 
-    public UserController(UserService service) {
+    public AdminController(AdminService service) {
         this.service = service;
     }
 

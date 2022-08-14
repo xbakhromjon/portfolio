@@ -16,7 +16,7 @@ import javax.persistence.Entity;
 public class File extends BaseEntityID {
     private String filePath;
     private String originalName;
-    private String extention;
+    private String contentType;
     private String generatedName;
     private Long size;
     private Boolean isActive = true;
@@ -24,7 +24,7 @@ public class File extends BaseEntityID {
     public File(String filePath, String originalName, String extention, String generatedName, Long size) {
         this.filePath = filePath;
         this.originalName = originalName;
-        this.extention = extention;
+        this.contentType = extention;
         this.generatedName = generatedName;
         this.size = size;
     }
