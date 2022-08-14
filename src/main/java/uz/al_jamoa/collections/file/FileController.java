@@ -18,8 +18,13 @@ public class FileController {
     private final FileService service;
 
     @PostMapping("/upload")
-    private ResponseEntity<UUID> upload(MultipartHttpServletRequest request) throws IOException {
+    private ResponseEntity<String> upload(MultipartHttpServletRequest request) throws IOException {
         return service.upload(request);
+    }
+
+    @PostMapping("/upload/image")
+    private ResponseEntity<String> uploadImage(MultipartHttpServletRequest request) throws IOException {
+        return service.uploadImage(request);
     }
 
 

@@ -15,7 +15,7 @@ import javax.persistence.OneToOne;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class User extends BaseEntityID {
+public class Users extends BaseEntityID {
     private String firstName;
     private String lastName;
     private String occupation;

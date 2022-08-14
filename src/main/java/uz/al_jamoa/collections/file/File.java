@@ -20,4 +20,12 @@ public class File extends BaseEntityID {
     private String generatedName;
     private Long size;
     private Boolean isActive = true;
+
+    public File(String filePath, String originalName, String extention, String generatedName, Long size) {
+        this.filePath = filePath;
+        this.originalName = originalName;
+        this.extention = extention;
+        this.generatedName = generatedName;
+        this.size = size;
+    }
 }
