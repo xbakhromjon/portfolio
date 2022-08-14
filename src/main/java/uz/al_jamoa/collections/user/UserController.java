@@ -6,8 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import uz.al_jamoa.collections.user.dto.UserCreateDTO;
-
-import javax.xml.crypto.Data;
+import uz.al_jamoa.collections.user.dto.UserUpdateDTO;
 
 @RestController
 @RequestMapping("user/")
@@ -22,5 +21,11 @@ public class UserController {
     @PostMapping("create")
     private ResponseEntity<?> create(@RequestBody UserCreateDTO createDTO){
         return service.create(createDTO);
+    }
+
+    @PostMapping("update")
+
+    private ResponseEntity<?> update(@RequestBody UserUpdateDTO updateDTO){
+        return service.update(updateDTO);
     }
 }

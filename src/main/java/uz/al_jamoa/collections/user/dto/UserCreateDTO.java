@@ -8,6 +8,7 @@ import lombok.Setter;
 import uz.al_jamoa.collections.file.File;
 
 import javax.persistence.OneToOne;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -24,6 +25,6 @@ public class UserCreateDTO {
     private String telegramLink;
     private String channelNameLink;
 
-    private String fileID;
+    private UUID fileID;
 
 }

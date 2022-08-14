@@ -27,4 +27,17 @@ public class User extends BaseEntityID {
     private String channelNameLink;
     @OneToOne
     private File aboutMe;
+
+    public User(String firstName, String lastName, String occupation, String shortDescription, String youtubeLink, String githubLink, String linkedinLink, String telegramLink, String channelNameLink) {
+
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.occupation = occupation;
+        this.shortDescription = shortDescription;
+        this.youtubeLink = youtubeLink;
+        this.githubLink = githubLink;
+        this.linkedinLink = linkedinLink;
+        this.telegramLink = telegramLink;
+        this.channelNameLink = channelNameLink;
+    }
 }
