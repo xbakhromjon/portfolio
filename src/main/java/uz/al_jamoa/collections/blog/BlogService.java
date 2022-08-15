@@ -28,7 +28,8 @@ public class BlogService {
         File file = entityGetter.getFile(createDTO.getFileGeneratedName());
         Blog blog = new Blog(file, createDTO.getTitle(), LocalDate.now());
         Blog saved = repository.save(blog);
-        return ResponseEntity.ok(saved);
+        BlogDTO blogDTO = mapper.toDTO(saved);
+        return ResponseEntity.ok(blogDTO);
     }
 
     public ResponseEntity<?> update(BlogUpdateDTO updateDTO) {

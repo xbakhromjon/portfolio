@@ -17,18 +17,13 @@ public class AdminController {
         this.service = service;
     }
 
-    @PostMapping("/create")
-    private ResponseEntity<?> create(@RequestBody AdminCreateDTO createDTO){
-        return service.create(createDTO);
-    }
-
     @PostMapping("/update")
-    private ResponseEntity<?> update(@RequestBody AdminUpdateDTO updateDTO){
+    private ResponseEntity<?> update(@RequestBody AdminUpdateDTO updateDTO) {
         return service.update(updateDTO);
     }
 
-    @GetMapping("/get")
-    private ResponseEntity<?> get(@PathVariable UUID uuid){
-        return service.get(uuid);
+    @GetMapping("/information")
+    private ResponseEntity<?> get() {
+        return service.get();
     }
 }

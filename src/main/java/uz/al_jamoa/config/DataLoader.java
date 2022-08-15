@@ -22,6 +22,13 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
         if (ddl.equals("create") || ddl.equals("create-drop")) {
             Admin admin = new Admin("Bakhromjon", "Khasanboyev", "bakhromjon.com", passwordEncoder.encode("bakhromjon123"));
+            admin.setOccupation("Backend Developer");
+            admin.setGithubLink("https://github.com/xbakhromjon");
+            admin.setLinkedinLink("https://github.com/xbakhromjon");
+            admin.setTelegramLink("https://github.com/xbakhromjon");
+            admin.setChannelNameLink("https://t.me/s/test_xolos");
+            admin.setYoutubeLink("https://github.com/xbakhromjon");
+            admin.setShortDescription("I write about non-technical stuff in the technical world.");
             adminRepository.save(admin);
         }
     }

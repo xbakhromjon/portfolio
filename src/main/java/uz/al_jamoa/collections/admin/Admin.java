@@ -27,11 +27,16 @@ public class Admin extends BaseEntityID implements UserDetails {
     private String githubLink;
     private String linkedinLink;
     private String telegramLink;
+    private String instagramLink;
+    private String twitterLink;
+    private String facebookLink;
     private String channelNameLink;
     @OneToOne
     private File aboutMe;
     private String username;
     private String password;
+    @OneToOne
+    private File image;
 
     public Admin(String firstName, String lastName, String occupation, String shortDescription, String youtubeLink, String githubLink, String linkedinLink, String telegramLink, String channelNameLink) {
 

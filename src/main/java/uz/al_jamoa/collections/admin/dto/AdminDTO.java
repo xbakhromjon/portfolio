@@ -23,6 +23,11 @@ public class AdminDTO {
     private String githubLink;
     private String linkedinLink;
     private String telegramLink;
+    private String instagramLink;
+    private String facebookLink;
     private String channelNameLink;
+    private String aboutMeURL;
+    private String imageURL;
     private String aboutMe;
+    private String image;
 }

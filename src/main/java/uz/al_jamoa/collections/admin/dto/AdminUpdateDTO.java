@@ -12,8 +12,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AdminUpdateDTO {
-
-    private UUID id;
+    private UUID ID;
     private String firstName;
     private String lastName;
     private String occupation;
@@ -22,7 +21,10 @@ public class AdminUpdateDTO {
     private String githubLink;
     private String linkedinLink;
     private String telegramLink;
+    private String instagramLink;
+    private String facebookLink;
+    private String twitterLink;
     private String channelNameLink;
-
-    private UUID fileID;
+    private String aboutMe;
+    private String image;
 }

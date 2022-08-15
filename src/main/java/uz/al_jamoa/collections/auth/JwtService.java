@@ -36,6 +36,7 @@ public class JwtService {
         Admin admin = entityGetter.getAdmin(username);
         Claims claims = Jwts.claims().setSubject(username);
         String json = new ObjectMapper().writeValueAsString(adminMapper.toDTO(admin));
+        claims.put("admin", json);
         String compact = Jwts.builder()
                 .setClaims(claims)
                 .setIssuedAt(new Date(System.currentTimeMillis()))

@@ -24,7 +24,9 @@ public class Blog extends BaseEntityID {
     private LocalDate updatedAt;
     private Boolean isDeleted;
     private LocalDate deletedAt;
-
+    private Integer likes = 0;
+    private Integer disLikes = 0;
+    private Integer views = 0;
 
     public Blog(File file, String title, LocalDate createdAt) {
         this.file = file;

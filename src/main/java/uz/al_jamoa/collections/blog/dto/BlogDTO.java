@@ -15,7 +15,7 @@ import java.util.UUID;
 @NoArgsConstructor
 public class BlogDTO {
     private UUID ID;
-    private String fileGeneratedName;
+    private String fileURL;
     private String title;
     private LocalDate createdAt;
     private LocalDate updatedAt;

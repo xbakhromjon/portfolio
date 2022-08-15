@@ -52,15 +52,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "//*.html",
                         "//*.css",
                         "//*.js",
-                        // "/swagger-ui/index.html",
-                        //  "/swagger-resources/",
+                         "/swagger-ui/index.html",
                         "/v2/",
                         "/csrf",
                         "/webjars/"
                 )
                 .permitAll()
-                .antMatchers("api/v1/admin/**", "api/v1/file/upload", "api/v1/file/upload/image").authenticated()
-                .antMatchers("api/v1/**").permitAll();
+                .antMatchers("api/v1/admin/update", "api/v1/file/upload", "api/v1/file/upload/image").authenticated()
+                .antMatchers("api/v1/admin/information").permitAll();
     }
 
     @Bean
